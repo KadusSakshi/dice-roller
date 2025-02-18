@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #282c34;
+            color: white;
+        }
+        .dice-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .dice {
+            width: 100px;
+            height: 100px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .roll-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #61dafb;
+            color: black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dice Roller</h1>
+    <div class="dice-container">
+        <img id="dice1" class="dice" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn5YXKqnb2d1sWILEqbdNgwRwzuQx3Y7YPxQ&s" alt="Dice 1">
+        <img id="dice2" class="dice" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn5YXKqnb2d1sWILEqbdNgwRwzuQx3Y7YPxQ&s" alt="Dice 2">
+    </div>
+    <button class="roll-button" onclick="rollDice()">Roll Dice</button>
+    
+    <script>
+        function rollDice() {
+            const diceImages = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz3y5j8au6MapEjusmmKfiL-2nh1Qxkt72kA&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5neBM8slAtsaBTWm2p4pOCstT_aiNcPdIBCRDH_L9P0iSHpbTLQ1kECBAElomSsncV0g&usqp=CAU",];
+            const dice1 = document.getElementById("dice1");
+            const dice2 = document.getElementById("dice2");
+            
+            let random1 = Math.floor(Math.random() * 2);
+            let random2 = Math.floor(Math.random() * 2);
+            
+            dice1.src = diceImages[random1];
+            dice2.src = diceImages[random2];
+            
+            dice1.style.transform = "rotate(" + (Math.random() * 360) + "deg)";
+            dice2.style.transform = "rotate(" + (Math.random() * 360) + "deg)";
+        }
+    </script>
+</body>
+</html>
